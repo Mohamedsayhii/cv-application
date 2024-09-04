@@ -1,0 +1,3 @@
+## CV Application
+
+This project is a dynamic CV builder application developed using React. Users can create, edit, and preview their resumes in real-time. The application features a user-friendly interface that allows for easy input of personal information, education, work experience, skills, and more. Each section of the CV can be customized to suit individual needs, with live previews ensuring that changes are instantly visible. The project leverages modern React practices, including functional components and hooks, to maintain state and manage the form inputs effectively. The design is responsive, ensuring compatibility across various devices.
