@@ -1,10 +1,10 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import './index.css';
-import ExperienceForm from './components/ExperienceForm.jsx';
+import Sidebar from './components/Sidebar';
 
 createRoot(document.getElementById('root')).render(
 	<StrictMode>
-		<ExperienceForm />
+		<Sidebar />
 	</StrictMode>
 );
