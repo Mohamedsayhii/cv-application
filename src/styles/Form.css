@@ -1,3 +1,12 @@
+.header {
+	display: flex;
+	align-items: center;
+}
+
+h3 {
+	margin-left: 5px;
+}
+
 .group {
 	position: relative;
 	margin-bottom: 30px;

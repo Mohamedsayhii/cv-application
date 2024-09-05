@@ -1,4 +1,7 @@
 import { useState } from 'react';
+import Icon from '@mdi/react';
+import { mdiBriefcase } from '@mdi/js';
+
 import '../styles/Form.css';
 
 export default function ExperienceForm() {
@@ -19,7 +22,10 @@ export default function ExperienceForm() {
 
 	return (
 		<>
-			<h3>Experience</h3>
+			<div className='header'>
+				<Icon path={mdiBriefcase} size={1.1} />
+				<h3>Work Experience</h3>
+			</div>
 			<form onSubmit={handleSubmit}>
 				<div className='group'>
 					<input

@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import Icon from '@mdi/react';
+import { mdiSchool } from '@mdi/js';
 import '../styles/Form.css';
 
 export default function EducationForm() {
@@ -19,7 +21,10 @@ export default function EducationForm() {
 
 	return (
 		<>
-			<h3>Educational</h3>
+			<div className='header'>
+				<Icon path={mdiSchool} size={1.1} />
+				<h3>Education</h3>
+			</div>
 			<form onSubmit={handleSubmit}>
 				<div className='group'>
 					<input

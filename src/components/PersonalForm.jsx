@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import Icon from '@mdi/react';
+import { mdiAccount } from '@mdi/js';
 import '../styles/Form.css';
 
 export default function PersonalForm() {
@@ -13,11 +15,17 @@ export default function PersonalForm() {
 		setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
 	};
 
-	function handleSubmit() {}
+	function handleSubmit(event) {
+		event.preventDefault();
+		console.log(formData);
+	}
 
 	return (
 		<>
-			<h3>Personal Information:</h3>
+			<div className='header'>
+				<Icon path={mdiAccount} size={1.1} />
+				<h3>Personal Information</h3>
+			</div>
 			<form onSubmit={handleSubmit}>
 				<div className='group'>
 					<input
