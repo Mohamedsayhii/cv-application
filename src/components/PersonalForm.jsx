@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import '../styles/Form.css';
 
-export default function GeneralInfosForm() {
+export default function PersonalForm() {
 	const [formData, setFormData] = useState({
 		name: '',
 		email: '',
@@ -17,7 +17,7 @@ export default function GeneralInfosForm() {
 
 	return (
 		<>
-			<h3>General Information:</h3>
+			<h3>Personal Information:</h3>
 			<form onSubmit={handleSubmit}>
 				<div className='group'>
 					<input
