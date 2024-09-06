@@ -18,13 +18,16 @@ export default function ExperienceForm() {
 		setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
 	};
 
-	function handleSubmit() {}
+	function handleSubmit(event) {
+		event.preventDefault();
+		console.log(formData);
+	}
 
 	return (
 		<>
 			<div className='header'>
-				<Icon path={mdiBriefcase} size={1.1} />
-				<h3>Work Experience</h3>
+				<Icon path={mdiBriefcase} size={2} />
+				<h2>Work Experience</h2>
 			</div>
 			<form onSubmit={handleSubmit}>
 				<div className='group'>

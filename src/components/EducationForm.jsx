@@ -17,13 +17,16 @@ export default function EducationForm() {
 		setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
 	};
 
-	function handleSubmit() {}
+	function handleSubmit(event) {
+		event.preventDefault();
+		console.log(formData);
+	}
 
 	return (
 		<>
 			<div className='header'>
-				<Icon path={mdiSchool} size={1.1} />
-				<h3>Education</h3>
+				<Icon path={mdiSchool} size={2} />
+				<h2>Education</h2>
 			</div>
 			<form onSubmit={handleSubmit}>
 				<div className='group'>

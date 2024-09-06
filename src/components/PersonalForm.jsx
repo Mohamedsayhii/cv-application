@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Icon from '@mdi/react';
 import { mdiAccount } from '@mdi/js';
 import '../styles/Form.css';
+import PersonalSection from './PersonalSection';
 
 export default function PersonalForm() {
 	const [formData, setFormData] = useState({
@@ -18,13 +19,18 @@ export default function PersonalForm() {
 	function handleSubmit(event) {
 		event.preventDefault();
 		console.log(formData);
+		<PersonalSection
+			name={formData.name}
+			email={formData.email}
+			phone={formData.phone}
+		/>;
 	}
 
 	return (
 		<>
 			<div className='header'>
-				<Icon path={mdiAccount} size={1.1} />
-				<h3>Personal Information</h3>
+				<Icon path={mdiAccount} size={2} />
+				<h2>Personal Information</h2>
 			</div>
 			<form onSubmit={handleSubmit}>
 				<div className='group'>
