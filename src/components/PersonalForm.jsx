@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Icon from '@mdi/react';
 import { mdiAccount } from '@mdi/js';
 import '../styles/Form.css';
-import PersonalSection from './PersonalSection';
+import Resume from './Resume';
 
 export default function PersonalForm() {
 	const [formData, setFormData] = useState({
@@ -19,7 +19,7 @@ export default function PersonalForm() {
 	function handleSubmit(event) {
 		event.preventDefault();
 		console.log(formData);
-		<PersonalSection
+		<Resume
 			name={formData.name}
 			email={formData.email}
 			phone={formData.phone}
