@@ -2,7 +2,7 @@
 	display: flex;
 	flex-direction: column;
 	width: 100%;
-	padding: 3rem 0.5rem;
+	padding: 4rem 0.5rem;
 }
 
 .fullname {
@@ -20,4 +20,8 @@
 	display: flex;
 	align-items: center;
 	gap: 0.3rem;
+}
+
+h3 {
+	font-size: 1.5rem;
 }
