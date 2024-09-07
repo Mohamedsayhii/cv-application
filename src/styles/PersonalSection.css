@@ -1,0 +1,23 @@
+.personal-section {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	padding: 3rem 0.5rem;
+}
+
+.fullname {
+	text-align: center;
+	margin-bottom: 1rem;
+}
+
+.personal-details {
+	display: flex;
+	justify-content: center;
+	gap: 2rem;
+}
+
+.info {
+	display: flex;
+	align-items: center;
+	gap: 0.3rem;
+}

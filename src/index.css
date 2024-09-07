@@ -30,11 +30,13 @@ a:hover {
 }
 
 body {
-	margin: 20px;
+	padding: 2rem;
 	display: flex;
+	justify-content: center;
 	place-items: center;
 	min-width: 320px;
 	min-height: 100vh;
+	background-color: #f3f4f6;
 }
 
 h1 {

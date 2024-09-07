@@ -1,7 +1,7 @@
 .header {
 	display: flex;
 	align-items: center;
-	margin-bottom: 2rem;
+	margin: 2rem 0;
 }
 
 h2 {
@@ -29,7 +29,7 @@ h2 {
 }
 
 .input[type='month'] {
-	width: 180px;
+	width: 190px;
 }
 
 .input:focus {
@@ -118,5 +118,4 @@ textarea ~ label {
 button {
 	width: 100%;
 	margin-top: -1rem;
-	margin-bottom: 2rem;
 }

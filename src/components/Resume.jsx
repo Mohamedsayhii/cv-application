@@ -1,3 +1,5 @@
+import '../styles/Resume.css';
+
 import PersonalSection from './PersonalSection';
 
 export default function Resume(props) {
@@ -7,6 +9,7 @@ export default function Resume(props) {
 				name={props.name}
 				email={props.email}
 				phone={props.phone}
+				address={props.address}
 			/>
 		</div>
 	);
