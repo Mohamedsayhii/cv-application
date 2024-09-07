@@ -12,7 +12,15 @@ export default function Sidebar(props) {
 				address={props.address}
 				onChange={props.onChange}
 			/>
-			<EducationForm />
+			<EducationForm
+				schoolName={props.schoolName}
+				degree={props.degree}
+				location={props.location}
+				startDate={props.startDate}
+				endDate={props.endDate}
+				onChange={props.onChange}
+				onSubmit={props.onSubmit}
+			/>
 			<ExperienceForm />
 		</div>
 	);

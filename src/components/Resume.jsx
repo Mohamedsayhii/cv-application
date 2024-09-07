@@ -12,7 +12,7 @@ export default function Resume(props) {
 				phone={props.phone}
 				address={props.address}
 			/>
-			<EducationSection />
+			<EducationSection educations={props.educations} />
 		</div>
 	);
 }

@@ -1,25 +1,17 @@
-import { useState } from 'react';
 import Icon from '@mdi/react';
 import { mdiSchool } from '@mdi/js';
 import '../styles/Form.css';
 
-export default function EducationForm() {
-	const [formData, setFormData] = useState({
-		name: '',
-		degree: '',
-		location: '',
-		startDate: '',
-		endDate: '',
-	});
-
-	const handleChange = (event) => {
-		const { name, value } = event.target;
-		setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
-	};
-
+export default function EducationForm(props) {
 	function handleSubmit(event) {
 		event.preventDefault();
-		console.log(formData);
+		props.onSubmit({
+			schoolName: props.schoolName,
+			degree: props.degree,
+			location: props.location,
+			startDate: props.startDate,
+			endDate: props.endDate,
+		});
 	}
 
 	return (
@@ -32,11 +24,11 @@ export default function EducationForm() {
 				<div className='group'>
 					<input
 						required
-						name='name'
+						name='schoolName'
 						type='text'
 						className='input'
-						value={formData.name}
-						onChange={handleChange}
+						value={props.schoolName}
+						onChange={props.onChange}
 					/>
 					<span className='bar'></span>
 					<label>School Name</label>
@@ -47,8 +39,8 @@ export default function EducationForm() {
 						name='degree'
 						type='text'
 						className='input'
-						value={formData.degree}
-						onChange={handleChange}
+						value={props.degree}
+						onChange={props.onChange}
 					/>
 					<span className='bar'></span>
 					<label>Degree Title</label>
@@ -59,8 +51,8 @@ export default function EducationForm() {
 						name='location'
 						type='text'
 						className='input'
-						value={formData.location}
-						onChange={handleChange}
+						value={props.location}
+						onChange={props.onChange}
 					/>
 					<span className='bar'></span>
 					<label>Location</label>
@@ -73,8 +65,8 @@ export default function EducationForm() {
 							type='month'
 							placeholder='09/2020'
 							className='input'
-							value={formData.startDate}
-							onChange={handleChange}
+							value={props.startDate}
+							onChange={props.onChange}
 						/>
 						<label>Start Date</label>
 					</div>
@@ -86,8 +78,8 @@ export default function EducationForm() {
 							type='month'
 							placeholder='06/2024'
 							className='input'
-							value={formData.endDate}
-							onChange={handleChange}
+							value={props.endDate}
+							onChange={props.onChange}
 						/>
 						<label>End Date</label>
 					</div>
