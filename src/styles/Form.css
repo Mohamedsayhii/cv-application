@@ -11,7 +11,7 @@
 
 .group {
 	position: relative;
-	margin-bottom: 30px;
+	margin-bottom: 3rem;
 }
 
 .input {
@@ -118,4 +118,26 @@ textarea ~ label {
 button {
 	width: 100%;
 	margin-top: -1rem;
+}
+
+.register {
+	display: grid;
+	grid-template-columns: 1fr 0.5fr;
+	align-items: center;
+	gap: 1rem;
+	margin: 3rem 1rem;
+}
+
+.register h3 {
+	font-size: 1.6rem;
+}
+
+.register .buttons {
+	display: flex;
+	gap: 1rem;
+}
+
+.register .buttons button {
+	padding: 1rem;
+	margin: 0;
 }

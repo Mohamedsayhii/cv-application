@@ -20,6 +20,8 @@ export default function Sidebar(props) {
 				endDate={props.endDate}
 				onChange={props.onChange}
 				onSubmit={props.onSubmit}
+				educations={props.educations}
+				onDelete={props.onDelete}
 			/>
 			<ExperienceForm />
 		</div>

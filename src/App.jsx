@@ -22,13 +22,20 @@ function App() {
 			degree: 'Bachelor of Computer Science',
 			location: 'New York',
 			startDate: '08/2020',
-			endDate: '06/2020',
+			endDate: '06/2024',
 		},
 	]);
 
 	function addEducation(education) {
 		setEducations((prevEducations) => [...prevEducations, education]);
-		console.log(educations);
+	}
+
+	function deleteEducation(educationToDelete) {
+		setEducations((prevEducations) =>
+			prevEducations.filter(
+				(education) => education.schoolName !== educationToDelete
+			)
+		);
 	}
 
 	const handleChange = (event) => {
@@ -50,6 +57,8 @@ function App() {
 				endDate={formData.endDate}
 				onChange={handleChange}
 				onSubmit={addEducation}
+				onDelete={deleteEducation}
+				educations={educations}
 			/>
 			<Resume
 				name={formData.name}

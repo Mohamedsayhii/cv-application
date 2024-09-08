@@ -1,6 +1,7 @@
 import Icon from '@mdi/react';
 import { mdiSchool } from '@mdi/js';
 import '../styles/Form.css';
+import Register from './Register';
 
 export default function EducationForm(props) {
 	function handleSubmit(event) {
@@ -86,6 +87,13 @@ export default function EducationForm(props) {
 				</div>
 				<button type='submit'>Add</button>
 			</form>
+			{props.educations.map((education) => (
+				<Register
+					key={crypto.randomUUID()}
+					name={education.schoolName}
+					onDelete={props.onDelete}
+				/>
+			))}
 		</>
 	);
 }
