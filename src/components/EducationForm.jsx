@@ -7,6 +7,7 @@ export default function EducationForm(props) {
 	function handleSubmit(event) {
 		event.preventDefault();
 		props.onSubmit({
+			key: crypto.randomUUID(),
 			schoolName: props.schoolName,
 			degree: props.degree,
 			location: props.location,
@@ -89,7 +90,8 @@ export default function EducationForm(props) {
 			</form>
 			{props.educations.map((education) => (
 				<Register
-					key={crypto.randomUUID()}
+					key={education.key}
+					theKey={education.key}
 					name={education.schoolName}
 					onDelete={props.onDelete}
 				/>

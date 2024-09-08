@@ -8,7 +8,7 @@ export default function EducationSection(props) {
 				<h2>Education</h2>
 				{props.educations.map((education) => (
 					<Education
-						key={crypto.randomUUID()}
+						key={education.key}
 						schoolName={education.schoolName}
 						degree={education.degree}
 						location={education.location}

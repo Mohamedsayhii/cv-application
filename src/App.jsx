@@ -16,24 +16,18 @@ function App() {
 		endDate: '',
 	});
 
-	const [educations, setEducations] = useState([
-		{
-			schoolName: 'New York University',
-			degree: 'Bachelor of Computer Science',
-			location: 'New York',
-			startDate: '08/2020',
-			endDate: '06/2024',
-		},
-	]);
+	const [educations, setEducations] = useState([]);
 
 	function addEducation(education) {
 		setEducations((prevEducations) => [...prevEducations, education]);
+		console.log(educations);
 	}
 
-	function deleteEducation(educationToDelete) {
+	function deleteEducation(educationKeyToDelete) {
+		console.log(educationKeyToDelete);
 		setEducations((prevEducations) =>
 			prevEducations.filter(
-				(education) => education.schoolName !== educationToDelete
+				(education) => education.key !== educationKeyToDelete
 			)
 		);
 	}
