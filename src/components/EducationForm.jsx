@@ -2,18 +2,41 @@ import Icon from '@mdi/react';
 import { mdiSchool } from '@mdi/js';
 import '../styles/Form.css';
 import Register from './Register';
+import { useEffect, useState } from 'react';
 
 export default function EducationForm(props) {
+	const [schoolName, setSchoolName] = useState('');
+	const [degree, setDegree] = useState('');
+	const [location, setLocation] = useState('');
+	const [startDate, setStartDate] = useState('');
+	const [endDate, setEndDate] = useState('');
+
+	useEffect(() => {
+		if (props.editMode && props.editData) {
+			setSchoolName(props.editData.schoolName);
+			setDegree(props.editData.degree);
+			setLocation(props.editData.location);
+			setStartDate(props.editData.startDate);
+			setEndDate(props.editData.endDate);
+		}
+	}, [props.editData, props.editMode, props.editDone]);
+
 	function handleSubmit(event) {
 		event.preventDefault();
-		props.onSubmit({
-			key: crypto.randomUUID(),
-			schoolName: props.schoolName,
-			degree: props.degree,
-			location: props.location,
-			startDate: props.startDate,
-			endDate: props.endDate,
-		});
+		const newEducation = {
+			key: props.editMode ? props.editData.key : crypto.randomUUID(),
+			schoolName: schoolName,
+			degree: degree,
+			location: location,
+			startDate: startDate,
+			endDate: endDate,
+		};
+
+		if (props.editMode) {
+			props.editEducation(newEducation);
+		} else {
+			props.onSubmit(newEducation);
+		}
 	}
 
 	return (
@@ -29,8 +52,8 @@ export default function EducationForm(props) {
 						name='schoolName'
 						type='text'
 						className='input'
-						value={props.schoolName}
-						onChange={props.onChange}
+						value={schoolName}
+						onChange={(e) => setSchoolName(e.target.value)}
 					/>
 					<span className='bar'></span>
 					<label>School Name</label>
@@ -41,8 +64,8 @@ export default function EducationForm(props) {
 						name='degree'
 						type='text'
 						className='input'
-						value={props.degree}
-						onChange={props.onChange}
+						value={degree}
+						onChange={(e) => setDegree(e.target.value)}
 					/>
 					<span className='bar'></span>
 					<label>Degree Title</label>
@@ -53,8 +76,8 @@ export default function EducationForm(props) {
 						name='location'
 						type='text'
 						className='input'
-						value={props.location}
-						onChange={props.onChange}
+						value={location}
+						onChange={(e) => setLocation(e.target.value)}
 					/>
 					<span className='bar'></span>
 					<label>Location</label>
@@ -67,8 +90,8 @@ export default function EducationForm(props) {
 							type='month'
 							placeholder='09/2020'
 							className='input'
-							value={props.startDate}
-							onChange={props.onChange}
+							value={startDate}
+							onChange={(e) => setStartDate(e.target.value)}
 						/>
 						<label>Start Date</label>
 					</div>
@@ -80,13 +103,13 @@ export default function EducationForm(props) {
 							type='month'
 							placeholder='06/2024'
 							className='input'
-							value={props.endDate}
-							onChange={props.onChange}
+							value={endDate}
+							onChange={(e) => setEndDate(e.target.value)}
 						/>
 						<label>End Date</label>
 					</div>
 				</div>
-				<button type='submit'>Add</button>
+				<button type='submit'>{props.editMode ? 'Edit' : 'Add'}</button>
 			</form>
 			{props.educations.map((education) => (
 				<Register
@@ -94,6 +117,7 @@ export default function EducationForm(props) {
 					theKey={education.key}
 					name={education.schoolName}
 					onDelete={props.onDelete}
+					onEdit={props.onEdit}
 				/>
 			))}
 		</>

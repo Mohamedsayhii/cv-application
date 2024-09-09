@@ -3,7 +3,7 @@ export default function Register(props) {
 		<div className='register'>
 			<h3>{props.name}</h3>
 			<div className='buttons'>
-				<button>Edit</button>
+				<button onClick={() => props.onEdit(props.theKey)}>Edit</button>
 				<button onClick={() => props.onDelete(props.theKey)}>
 					Delete
 				</button>
