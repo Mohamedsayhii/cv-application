@@ -22,7 +22,7 @@ export default function Sidebar(props) {
 				editEducation={props.editEducation}
 				educations={props.educations}
 			/>
-			<ExperienceForm />
+			<ExperienceForm experiences={props.experiences} />
 		</div>
 	);
 }

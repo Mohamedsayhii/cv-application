@@ -30,8 +30,20 @@ function App() {
 		},
 	]);
 
-	const [editMode, setEditMode] = useState(false);
-	const [editData, setEditData] = useState();
+	const [experiences, setExperiences] = useState([
+		{
+			key: crypto.randomUUID(),
+			companyName: 'Vermeg',
+			position: 'Software Developer',
+			location: 'Sousse, Tunisia',
+			startDate: '01/2024',
+			endDate: '01/2025',
+			responsibilities: 'YESSSSSSSSSSSSSSSS',
+		},
+	]);
+
+	const [educationsEditMode, setEducationsEditMode] = useState(false);
+	const [educationsEditData, setEducationsEditData] = useState();
 
 	function addEducation(education) {
 		setEducations((prevEducations) => [...prevEducations, education]);
@@ -44,14 +56,9 @@ function App() {
 	}
 
 	function startEditEducation(key) {
-		setEditMode(true);
-		setEditData(educations.find((ed) => ed.key === key));
+		setEducationsEditMode(true);
+		setEducationsEditData(educations.find((ed) => ed.key === key));
 	}
-
-	const handleChange = (event) => {
-		const { name, value } = event.target;
-		setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
-	};
 
 	const editEducation = (newEducation) => {
 		setEducations((prevEducations) =>
@@ -61,7 +68,12 @@ function App() {
 					: oldEducation
 			)
 		);
-		setEditMode(false);
+		setEducationsEditMode(false);
+	};
+
+	const handleChange = (event) => {
+		const { name, value } = event.target;
+		setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
 	};
 
 	return (
@@ -75,10 +87,11 @@ function App() {
 				editEducation={editEducation}
 				onSubmit={addEducation}
 				onDelete={deleteEducation}
-				editData={editData}
-				editMode={editMode}
+				editData={educationsEditData}
+				editMode={educationsEditMode}
 				onEdit={startEditEducation}
 				educations={educations}
+				experiences={experiences}
 			/>
 			<Resume
 				name={formData.name}
@@ -86,6 +99,7 @@ function App() {
 				phone={formData.phone}
 				address={formData.address}
 				educations={educations}
+				experiences={experiences}
 			/>
 		</main>
 	);
