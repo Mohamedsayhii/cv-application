@@ -22,7 +22,10 @@ export default function Education(props) {
 				<div className='degree'>
 					<p>{props.position}</p>
 				</div>
-				<div className='responsibilities'>
+				<div
+					className='responsibilities'
+					style={{ textAlign: 'justify' }}
+				>
 					<p>{props.responsibilities}</p>
 				</div>
 			</div>

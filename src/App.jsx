@@ -67,7 +67,10 @@ function App() {
 			location: 'Sousse, Tunisia',
 			startDate: '01/2024',
 			endDate: '01/2025',
-			responsibilities: 'YESSSSSSSSSSSSSSSS',
+			responsibilities: `Design, develop, and maintain software applications and systems. Collaborate with cross - functional teams to analyze requirements and provide technical solutions.
+				Debug, test, and optimize applications for performance and security.
+				Participate in code reviews, provide feedback, and ensure code quality.
+				Continuously learn and adapt to new technologies and tools to improve development processes.`,
 		},
 	]);
 
