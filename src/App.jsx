@@ -30,18 +30,6 @@ function App() {
 		},
 	]);
 
-	const [experiences, setExperiences] = useState([
-		{
-			key: crypto.randomUUID(),
-			companyName: 'Vermeg',
-			position: 'Software Developer',
-			location: 'Sousse, Tunisia',
-			startDate: '01/2024',
-			endDate: '01/2025',
-			responsibilities: 'YESSSSSSSSSSSSSSSS',
-		},
-	]);
-
 	const [educationsEditMode, setEducationsEditMode] = useState(false);
 	const [educationsEditData, setEducationsEditData] = useState();
 
@@ -71,6 +59,47 @@ function App() {
 		setEducationsEditMode(false);
 	};
 
+	const [experiences, setExperiences] = useState([
+		{
+			key: crypto.randomUUID(),
+			companyName: 'Vermeg',
+			position: 'Software Developer',
+			location: 'Sousse, Tunisia',
+			startDate: '01/2024',
+			endDate: '01/2025',
+			responsibilities: 'YESSSSSSSSSSSSSSSS',
+		},
+	]);
+
+	const [experiencesEditMode, setExperiencesEditMode] = useState(false);
+	const [experiencesEditData, setExperiencesEditData] = useState();
+
+	function addExperience(experience) {
+		setExperiences((prevExperiences) => [...prevExperiences, experience]);
+	}
+
+	function deleteExperience(key) {
+		setExperiences((prevExperiences) =>
+			prevExperiences.filter((experience) => experience.key !== key)
+		);
+	}
+
+	function startEditExperience(key) {
+		setExperiencesEditMode(true);
+		setExperiencesEditData(experiences.find((ed) => ed.key === key));
+	}
+
+	const editExperience = (newExperience) => {
+		setExperiences((prevExperiences) =>
+			prevExperiences.map((oldExperience) =>
+				oldExperience.key === newExperience.key
+					? newExperience
+					: oldExperience
+			)
+		);
+		setExperiencesEditMode(false);
+	};
+
 	const handleChange = (event) => {
 		const { name, value } = event.target;
 		setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
@@ -85,12 +114,18 @@ function App() {
 				address={formData.address}
 				onChange={handleChange}
 				editEducation={editEducation}
-				onSubmit={addEducation}
-				onDelete={deleteEducation}
-				editData={educationsEditData}
-				editMode={educationsEditMode}
-				onEdit={startEditEducation}
+				onSubmitEducation={addEducation}
+				onDeleteEducation={deleteEducation}
+				educationsEditData={educationsEditData}
+				educationsEditMode={educationsEditMode}
+				startEditEducation={startEditEducation}
 				educations={educations}
+				editExperience={editExperience}
+				onSubmitExperience={addExperience}
+				onDeleteExperience={deleteExperience}
+				experiencesEditData={experiencesEditData}
+				experiencesEditMode={experiencesEditMode}
+				startEditExperience={startEditExperience}
 				experiences={experiences}
 			/>
 			<Resume

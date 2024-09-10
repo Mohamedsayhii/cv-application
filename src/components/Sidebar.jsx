@@ -14,15 +14,24 @@ export default function Sidebar(props) {
 			/>
 			<EducationForm
 				onChange={props.onChange}
-				onSubmit={props.onSubmit}
-				onDelete={props.onDelete}
-				editData={props.editData}
-				editMode={props.editMode}
-				onEdit={props.onEdit}
+				onSubmit={props.onSubmitEducation}
+				onDelete={props.onDeleteEducation}
+				editData={props.educationsEditData}
+				editMode={props.educationsEditMode}
+				startEdit={props.startEditEducation}
 				editEducation={props.editEducation}
 				educations={props.educations}
 			/>
-			<ExperienceForm experiences={props.experiences} />
+			<ExperienceForm
+				onChange={props.onChange}
+				onSubmit={props.onSubmitExperience}
+				onDelete={props.onDeleteExperience}
+				editData={props.experiencesEditData}
+				editMode={props.experiencesEditMode}
+				startEdit={props.startEditExperience}
+				editExperience={props.editExperience}
+				experiences={props.experiences}
+			/>
 		</div>
 	);
 }

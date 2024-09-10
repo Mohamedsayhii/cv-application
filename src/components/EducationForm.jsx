@@ -12,14 +12,20 @@ export default function EducationForm(props) {
 	const [endDate, setEndDate] = useState('');
 
 	useEffect(() => {
-		if (props.editMode && props.editData) {
+		if (props.editMode) {
 			setSchoolName(props.editData.schoolName);
 			setDegree(props.editData.degree);
 			setLocation(props.editData.location);
 			setStartDate(props.editData.startDate);
 			setEndDate(props.editData.endDate);
+		} else {
+			setSchoolName('');
+			setDegree('');
+			setLocation('');
+			setStartDate('');
+			setEndDate('');
 		}
-	}, [props.editData, props.editMode, props.editDone]);
+	}, [props.editData, props.editMode]);
 
 	function handleSubmit(event) {
 		event.preventDefault();
@@ -117,7 +123,7 @@ export default function EducationForm(props) {
 					theKey={education.key}
 					name={education.schoolName}
 					onDelete={props.onDelete}
-					onEdit={props.onEdit}
+					startEdit={props.startEdit}
 				/>
 			))}
 		</>
